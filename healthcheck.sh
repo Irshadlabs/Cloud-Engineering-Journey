@@ -8,3 +8,4 @@ echo -e "\n2. Memory Usage:"
 free -h
 echo -e "\n3. System Uptime:"
 uptime
+script run succesfully
