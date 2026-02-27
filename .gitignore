@@ -1,0 +1,14 @@
+# Ignore log files
+*.log
+
+# Ignore OS generated files
+.DS_Store
+.ssh/
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Ignore sensitive info (if any)
+auth.txt
+credentials.pem
