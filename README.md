@@ -1,25 +1,32 @@
-🚀 My Cloud & DevOps Journey
-Hi there! I'm Mohammed, and this repository is a live document of my transition into the world of Cloud Engineering and DevOps. Instead of just reading theory, I believe in building things daily on a real-world infrastructure.
+# ☁️ Cloud & Network Engineering Portfolio
+**Author: Mohammed Irshad** *AWS Certified Solutions Architect | CCNA | MCP | B.Tech (CS)*
 
-🌐 My Lab Environment
-Currently, I am hosting my lab on AWS (Amazon Web Services) using an EC2 Instance (Ubuntu 22.04 LTS). This allows me to practice in a real cloud environment, managing everything via SSH.
+Welcome to my DevOps & Cloud automation journey. This repository contains production-ready scripts for managing cloud infrastructure and network security.
 
-📂 What's inside this Repository?
-I am writing Bash scripts to automate boring and repetitive tasks. Here are some of my recent works:
+---
 
-cloud_ready.sh: My go-to script to check if a new Linux server is healthy and ready for cloud deployment.
+### 🎓 Professional Certifications
+- 🏆 **AWS Certified Solutions Architect**
+- 🌐 **Cisco Certified Network Associate (CCNA)**
+- 💻 **Microsoft Certified Professional (MCP)**
 
-threshold.sh: I built this to keep an eye on disk space. It alerts me before the server runs out of storage.
+---
 
-backup.sh: A simple automation to ensure my important files are backed up regularly.
+### 📂 Project Structure (Categorized)
 
-healthcheck.sh: This helps me monitor service status and logs so I know if something goes wrong.
+| Folder | Description | Key Scripts |
+| :--- | :--- | :--- |
+| **[Monitoring](./monitoring)** | System health & Service audits | `healthcheck.sh`, `multi_services_check.sh` |
+| **[Security](./security)** | Network scanning & Cloud readiness | `Port_scan.sh`, `cloud_ready.sh` |
+| **[Automation](./automation)** | Automated backups & Maintenance | `backup.sh`, `system_cleanup.sh` |
+| **[User-Mgmt](./user-management)** | Bulk User onboarding/offboarding | `create_user.sh`, `delete_user.sh` |
 
-🛠️ The Tools I Use
-Cloud: AWS (EC2, VPC, Security Groups)
+---
 
-OS: Ubuntu / Linux
+### 🚀 How to Run
+1. Clone: `git clone https://github.com/Irshadlabs/Cloud-Engineering-Journey.git`
+2. Permissions: `chmod +x */*.sh`
+3. Execute: `./monitoring/healthcheck.sh`
 
-Automation: Bash Scripting
-
-Version Control: Git & GitHub (Everything is pushed from my EC2 terminal!)
+---
+**Environment:** Ubuntu 22.04 LTS on AWS EC2
