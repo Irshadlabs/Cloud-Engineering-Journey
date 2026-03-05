@@ -22,14 +22,12 @@ Welcome to my DevOps & Cloud automation journey. This repository contains produc
 | **[Automation](./automation)** | Automated backups & Maintenance | `backup.sh`, `system_cleanup.sh` |
 | **[User-Mgmt](./user-management)** | Bulk User onboarding/offboarding | `create_user.sh`, `delete_user.sh` |
 
----
 
 ### 🚀 How to Run
 1. Clone: `git clone https://github.com/Irshadlabs/Cloud-Engineering-Journey.git`
 2. Permissions: `chmod +x */*.sh`
 3. Execute: `./monitoring/healthcheck.sh`
 
----
+
 **Environment:** Ubuntu 22.04 LTS on AWS EC2
-=======
 
