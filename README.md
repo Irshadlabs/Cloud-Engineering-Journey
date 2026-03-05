@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ☁️ Cloud & Network Engineering Portfolio
 **Author: Mohammed Irshad** *AWS Certified Solutions Architect | CCNA | MCP | B.Tech (CS)*
 
@@ -30,3 +31,6 @@ Welcome to my DevOps & Cloud automation journey. This repository contains produc
 
 ---
 **Environment:** Ubuntu 22.04 LTS on AWS EC2
+=======
+
+>>>>>>> ea19c33a94476ad7a75a3a3db67284cb5f4ef163
