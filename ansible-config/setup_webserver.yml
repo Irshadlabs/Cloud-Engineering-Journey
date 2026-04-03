@@ -1,0 +1,37 @@
+# =========================================================
+# Project: Automated Server Configuration
+# Author: Mohammed Irshad
+# Description: This Ansible playbook automates the 
+#              installation and setup of a Web Server.
+# =========================================================
+
+- name: Configure Web Servers
+  hosts: all
+  become: yes # Run commands with sudo privileges
+
+  tasks:
+    # Task 1: Update the package repository (Like 'apt update')
+    - name: Ensure the system cache is up to date
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+
+    # Task 2: Install Nginx (The Web Server)
+    - name: Install the latest version of Nginx
+      apt:
+        name: nginx
+        state: latest
+
+    # Task 3: Start and Enable Nginx service
+    # This ensures the website stays up even after a reboot.
+    - name: Start Nginx service and enable on boot
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    # Task 4: Create a custom Welcome Page
+    - name: Deploy a custom index.html
+      copy:
+        content: "<h1>Welcome to Irshadlabs Automated Server</h1>"
+        dest: /var/lib/nginx/html/index.html
