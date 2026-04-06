@@ -1,14 +1,26 @@
-# Ignore log files
+# --- Terraform Specific ---
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+.terraform/
+.terraform.lock.hcl
+*.tfplan
+
+# --- Docker & Containers ---
+.docker-temp/
+**/logs/*.log
+docker-projects/**/*.log
+
+# --- System & Logs ---
 *.log
-
-# Ignore OS generated files
+disk_log.txt
 .DS_Store
-.ssh/
+node_modules/
+__pycache__/
+.env
 
-# Ignore temporary files
-*.tmp
-*.swp
-
-# Ignore sensitive info (if any)
-auth.txt
-credentials.pem
+# --- AWS & Automation ---
+.aws/
+.elasticbeanstalk/
+scripts/*.tmp
