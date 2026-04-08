@@ -1,0 +1,43 @@
+# =========================================================
+# Project: Full-Stack Dockerized Infrastructure
+# Author: Mohammed Irshad (AWS SA & CCNA Certified)
+# Description: This stack deploys a Web Layer (Nginx) and 
+#              a Data Layer (MySQL) in an isolated network.
+# =========================================================
+
+version: '3.8'
+
+services:
+  # Service 1: Web Server (The Frontend)
+  web_portal:
+    image: nginx:alpine
+    container_name: web-frontend
+    ports:
+      - "8080:80"
+    networks:
+      - app_network
+    depends_on:
+      - database # Ensures the DB starts before the Web Server
+
+  # Service 2: MySQL Database (The Backend)
+  database:
+    image: mysql:8.0
+    container_name: db-backend
+    # Security: Using Environment Variables for Configuration
+    environment:
+      MYSQL_ROOT_PASSWORD: securepassword123
+      MYSQL_DATABASE: irshad_portfolio_db
+    # Persistence: Saving database data even if container stops
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app_network
+
+# Networking (CCNA Focus): Creating a private bridge for the app
+networks:
+  app_network:
+    driver: bridge
+
+# Storage: Named volume for database persistence
+volumes:
+  db_data:
