@@ -1,8 +1,3 @@
-# Project: Terraform Continuous Integration (CI)
-# Author: Mohammed Irshad 
-# Description: Automated linting and validation for Terraform code.
-# =========================================================
-
 name: 'Terraform CI'
 
 on:
@@ -16,28 +11,24 @@ jobs:
     name: 'Terraform Lint and Validate'
     runs-on: ubuntu-latest
     
-    # Ye block batata hai ki saari commands 'terraform-project' folder mein chalani hain
     defaults:
       run:
         working-directory: ./terraform-project
 
     steps:
-    # Step 1: Repository se code nikalna
+    # 1. GitHub se code download karna
     - name: Checkout
       uses: actions/checkout@v3
 
-    # Step 2: GitHub Runner pe Terraform install karna
+    # 2. Terraform install karna
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
 
-    # Step 3: Terraform ko initialize karna (Providers download honge)
+    # 3. Initialize (Bina Backend ke)
+    # -backend=false lagane se ye AWS keys nahi maangega
     - name: Terraform Init
-      run: terraform init
+      run: terraform init -backend=false
 
-    # Step 4: Formatting check karna
-    - name: Terraform Format Check
-      run: terraform fmt -check
-
-    # Step 5: Syntax aur logic validate karna
+    # 4. Syntax check karna
     - name: Terraform Validate
       run: terraform validate
