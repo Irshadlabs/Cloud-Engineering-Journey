@@ -1,8 +1,6 @@
-# =========================================================
 # Project: Terraform Continuous Integration (CI)
 # Author: Mohammed Irshad 
-# Description: This workflow automatically checks the 
-#              Terraform code for errors on every push.
+# Description: Automated linting and validation for Terraform code.
 # =========================================================
 
 name: 'Terraform CI'
@@ -17,27 +15,29 @@ jobs:
   terraform_check:
     name: 'Terraform Lint and Validate'
     runs-on: ubuntu-latest
+    
+    # Ye block batata hai ki saari commands 'terraform-project' folder mein chalani hain
+    defaults:
+      run:
+        working-directory: ./terraform-project
 
     steps:
-    # Step 1: Checkout the code from your repository
+    # Step 1: Repository se code nikalna
     - name: Checkout
       uses: actions/checkout@v3
 
-    # Step 2: Install Terraform on the GitHub Runner
+    # Step 2: GitHub Runner pe Terraform install karna
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
 
-    # Step 3: Initialize Terraform (Checks for provider plugins)
+    # Step 3: Terraform ko initialize karna (Providers download honge)
     - name: Terraform Init
       run: terraform init
-      working-directory: ./terraform-projects
 
-    # Step 4: Check if the code is formatted correctly
+    # Step 4: Formatting check karna
     - name: Terraform Format Check
       run: terraform fmt -check
-      working-directory: ./terraform-projects
 
-    # Step 5: Validate the syntax of the code
+    # Step 5: Syntax aur logic validate karna
     - name: Terraform Validate
       run: terraform validate
-      working-directory: ./terraform-projects
