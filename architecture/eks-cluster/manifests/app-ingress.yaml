@@ -1,0 +1,36 @@
+# -----------------------------------------------------------------------------------
+# Resource: Kubernetes Ingress
+# Description: Implements a single entry point for multiple services using 
+#              path-based routing. This optimizes costs by sharing one 
+#              Load Balancer across different applications.
+# Author: Mohammed Irshad (AWS Solutions Architect)
+# -----------------------------------------------------------------------------------
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: irshadlabs-main-ingress
+  annotations:
+    # Use the AWS Load Balancer Controller
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  rules:
+  - host: irshadlabs.com
+    http:
+      paths:
+      - path: /billing
+        pathType: Prefix
+        backend:
+          service:
+            name: billing-service # Your first app
+            port:
+              number: 80
+      - path: /orders
+        pathType: Prefix
+        backend:
+          service:
+            name: orders-service  # Your second app
+            port:
+              number: 80
