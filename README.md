@@ -1,3 +1,5 @@
+[![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badgelogo=amazon-awslogoColor=white)](https://aws.amazon.com/) [![Terraform](https://img.shields.io/badge/terraform-%23623CE4.svg?style=for-the-badgelogo=terraformlogoColor=white)](https://www.terraform.io/) [![Kubernetes](https://img.shields.io/badge/kubernetes-%23326CE5.svg?style=for-the-badgelogo=kuberneteslogoColor=white)](https://kubernetes.io/) [![Istio](https://img.shields.io/badge/Istio-%23466BB0.svg?style=for-the-badgelogo=IstiologoColor=white)](https://istio.io/)
+
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
    ![Terraform](https://img.shields.io/badge/terraform-%235C4EE5.svg?style=for-the-badge&logo=terraform&logoColor=white)
    ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326CE5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
@@ -39,3 +41,5 @@ Welcome to my DevOps & Cloud automation journey. This repository contains produc
 
 **Environment:** Ubuntu 22.04 LTS on AWS EC2
 
+
+> ⚠️ **Production Note:** Never deploy live workloads to the `default` namespace. Always isolate components using dedicated microservices namespaces with network policies enforced.
