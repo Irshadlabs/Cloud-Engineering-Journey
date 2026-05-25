@@ -43,3 +43,16 @@ Welcome to my DevOps & Cloud automation journey. This repository contains produc
 
 
 > ⚠️ **Production Note:** Never deploy live workloads to the `default` namespace. Always isolate components using dedicated microservices namespaces with network policies enforced.
+
+## 🔒 Cloud Network Security Matrix (Security Groups vs NACLs)
+
+To enforce strict boundary control within my multi-VPC and EKS topologies, I architect network isolation based on this functional state model:
+
+| Feature | Security Groups (Instance Level) | Network ACLs (Subnet Level) |
+| :--- | :--- | :--- |
+| **Type** | Stateful (Return traffic is automatically allowed) | Stateless (Return traffic must be explicitly defined) |
+| **Scope** | Evaluated at the EC2 Instance / Elastic Network Interface (ENI) | Evaluated at the Subnet boundary |
+| **Rules Support** | Supports `Allow` rules only (Default deny all traffic) | Supports both `Allow` and `Deny` rules |
+| **Evaluation** | All rules are evaluated simultaneously before traffic passes | Rules are processed sequentially in numbered order |
+
+> 💡 **Design Pattern:** In my architecture, NACLs are utilized as a coarse-grained firewall block (e.g., blocking malicious IP CIDRs at the subnet gate), while Security Groups handle the fine-grained application-level access controls.
