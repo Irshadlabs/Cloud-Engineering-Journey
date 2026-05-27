@@ -6,8 +6,7 @@
    ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232088FF.svg?style=for-the-badge&logo=github-actions&logoColor=white)
    ![Security Policy](https://img.shields.io/badge/Security-Enforced-success?style=for-the-badge)
 
-   # Your Existing Main Title (Jo pehle se likha tha)
-   Niche aapka baki ka saara purana content chalta rahega...
+  
 
 # ☁️ Cloud & Network Engineering Portfolio
 **Author: Mohammed Irshad** *AWS Certified Solutions Architect | CCNA | MCP | B.Tech (CS)*
