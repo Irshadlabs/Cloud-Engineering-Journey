@@ -1,0 +1,34 @@
+name: 'Terraform CI'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  terraform_check:
+    name: 'Terraform Lint and Validate'
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./terraform-project
+
+    steps:
+    # 1. GitHub se code download karna
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # 2. Terraform install karna
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+
+    # 3. Initialize (Bina Backend ke)
+    # -backend=false lagane se ye AWS keys nahi maangega
+    - name: Terraform Init
+      run: terraform init -backend=false
+
+    # 4. Syntax check karna
+    - name: Terraform Validate
+      run: terraform validate

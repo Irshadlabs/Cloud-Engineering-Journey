@@ -1,0 +1,26 @@
+# --- Terraform Specific ---
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+.terraform/
+.terraform.lock.hcl
+*.tfplan
+
+# --- Docker & Containers ---
+.docker-temp/
+**/logs/*.log
+docker-projects/**/*.log
+
+# --- System & Logs ---
+*.log
+disk_log.txt
+.DS_Store
+node_modules/
+__pycache__/
+.env
+
+# --- AWS & Automation ---
+.aws/
+.elasticbeanstalk/
+scripts/*.tmp

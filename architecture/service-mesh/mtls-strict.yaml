@@ -1,0 +1,16 @@
+# -----------------------------------------------------------------------------------
+# Resource: Istio PeerAuthentication
+# Description: Enforces Strict Mutual TLS (mTLS) across the namespace. This 
+#              ensures all service-to-service traffic is encrypted and 
+#              authenticated using certificates.
+# Author: Mohammed Irshad (AWS Solutions Architect)
+# -----------------------------------------------------------------------------------
+
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: default-strict-mtls
+  namespace: istio-system # You can change this to your app namespace
+spec:
+  mtls:
+    mode: STRICT # No plain-text traffic allowed. Encryption is MANDATORY.
