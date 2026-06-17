@@ -1,0 +1,33 @@
+# =========================================================
+# Project: Multi-Container Orchestration with Docker Compose
+# Author: Mohammed Irshad 
+# Description: This file manages a high-performance Nginx 
+#              service with persistent data volumes.
+# =========================================================
+
+version: '3.8'
+
+services:
+  # Service 1: The Web Server (Nginx)
+  web_server:
+    image: nginx:alpine
+    container_name: irshadlabs-web-portal
+    ports:
+      - "8080:80" # Mapping Host Port 8080 to Container Port 80
+    
+    # Persistent Storage: This ensures your website files stay safe
+    # even if the container is deleted.
+    volumes:
+      - ./html:/usr/share/nginx/html
+    
+    # Restart Policy: Essential for production uptime
+    restart: always
+
+    networks:
+      - frontend_network
+
+# Network Definition 
+# Isolating the web traffic into a specific virtual bridge network.
+networks:
+  frontend_network:
+    driver: bridge
