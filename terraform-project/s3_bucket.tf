@@ -7,9 +7,6 @@
 
 # 1. Define the Cloud Provider (AWS)
 # This block tells Terraform to use the AWS plugin and sets the deployment region.
-provider "aws" {
-  region = "us-east-1"
-}
 
 # 2. Create an S3 Bucket Resource
 # 'my_portfolio_bucket' is the internal name used by Terraform to track this resource.
