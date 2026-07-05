@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  secure-web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: secure-service:v1
+    container_name: production_secure_web_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - cache-layer
+    networks:
+      - secure_backend_bridge
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
+
+  cache-layer:
+    image: redis:7-alpine
+    container_name: production_cache_redis
+    networks:
+      - secure_backend_bridge
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+
+networks:
+  secure_backend_bridge:
+    driver: bridge
