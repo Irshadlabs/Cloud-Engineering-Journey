@@ -1,0 +1,13 @@
+# --- STAGE 1: Build Stage (Thick Environment) ---
+FROM golang:1.21-alpine AS builder
+WORKDIR /app
+# Mock application file create kar rahe hain compile karne ke liye
+RUN echo 'package main; import "fmt"; func main() { fmt.Println("Enterprise Hybrid Core Portal Active!") }' > main.go
+RUN go build -o mainApp main.go
+
+# --- STAGE 2: Production Stage (Super Light Environment) ---
+FROM alpine:3.19
+WORKDIR /app
+# Stage 1 se sirf final binary file copy kar rahe hain (pure source files peeche chhoot jayengi)
+COPY --from=builder /app/mainApp .
+CMD ["./mainApp"]
