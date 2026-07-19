@@ -1,0 +1,20 @@
+# --- Production Optimized Container Architecture ---
+FROM alpine:3.19
+
+# Security Best Practice: Non-root user create karna
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
+WORKDIR /home/appuser/app
+
+# Application environment setups
+ENV NODE_ENV=production
+ENV LOG_FORMAT=json
+
+# Healthcheck API endpoint simulation (Roz cloud maintenance mein kaam aata hai)
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1
+
+echo "Production Container Engine Initialized." > start.sh
+
+CMD ["sh", "start.sh"]
