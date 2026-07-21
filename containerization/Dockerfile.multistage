@@ -1,4 +1,6 @@
+
 # --- STAGE 1: Build Stage (Thick Environment) ---
+# Release Version: v1.1.0 - Production Optimized Build
 FROM golang:1.21-alpine AS builder
 WORKDIR /app
 # Mock application file create kar rahe hain compile karne ke liye
