@@ -19,8 +19,16 @@ disk_log.txt
 node_modules/
 __pycache__/
 .env
+tmp/
 
 # --- AWS & Automation ---
 .aws/
 .elasticbeanstalk/
 scripts/*.tmp
+
+# Sensitive keys and credentials
+*.pem
+*.key
+*.env
+*.id_rsa
+aws/credential
